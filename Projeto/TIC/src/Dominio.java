@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Dominio {
@@ -9,14 +10,16 @@ public class Dominio {
     private List<ItemDominio> itensDominio;
 
     public Dominio() {
+        // aloca espaço na memória para o vetor
+        this.itensDominio = new ArrayList<ItemDominio>();
     }
-
-    public Dominio(Long id, String nome, float pontuacao, List<ItemDominio> itensDominio) {
+    public Dominio(Long id, String nome) {
+        // aloca espaço na memória para o vetor
         this.id = id;
         this.nome = nome;
-        this.pontuacao = pontuacao;
-        this.itensDominio = itensDominio;
+        this.itensDominio = new ArrayList<ItemDominio>();
     }
+
 
     public Long getId() {
         return id;
@@ -50,9 +53,25 @@ public class Dominio {
         this.itensDominio = itensDominio;
     }
 
+    // adiciona um item de domínio no domínio
+    public void addItemDominio(ItemDominio itemDominio){
+        // adiciona um item de domínio no vetor
+        this.itensDominio.add(itemDominio);
+        this.calculaPontuacao();
+    }
+    public void calculaPontuacao(){
+        // percorre o vetor de itens de domínio
+        float soma = 0;
+        for(ItemDominio obj: this.itensDominio){
+            // obj representa cada um dos itens de domínio
+            soma += obj.getPontuacao();
+        }
+        this.pontuacao = soma / this.itensDominio.size();
+    }
+
     @Override
     public String toString() {
-        return "Dominio{" +
+        return "\nDominio{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", pontuacao=" + pontuacao +

@@ -38,7 +38,7 @@ public class ItemDominio {
 
     @Override
     public String toString() {
-        return "ItemDominio{" +
+        return "\nItemDominio{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", pontuacao=" + pontuacao +
