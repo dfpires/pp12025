@@ -7,17 +7,17 @@ public class Dominio {
     private float pontuacao;
     // associação todo-parte
     // List representa um vetor
-    private List<ItemDominio> itensDominio;
+    private List<QuestaoNumerica> itensDominio;
 
     public Dominio() {
         // aloca espaço na memória para o vetor
-        this.itensDominio = new ArrayList<ItemDominio>();
+        this.itensDominio = new ArrayList<QuestaoNumerica>();
     }
     public Dominio(Long id, String nome) {
         // aloca espaço na memória para o vetor
         this.id = id;
         this.nome = nome;
-        this.itensDominio = new ArrayList<ItemDominio>();
+        this.itensDominio = new ArrayList<QuestaoNumerica>();
     }
 
 
@@ -45,16 +45,16 @@ public class Dominio {
         this.pontuacao = pontuacao;
     }
 
-    public List<ItemDominio> getItensDominio() {
+    public List<QuestaoNumerica> getItensDominio() {
         return itensDominio;
     }
 
-    public void setItensDominio(List<ItemDominio> itensDominio) {
+    public void setItensDominio(List<QuestaoNumerica> itensDominio) {
         this.itensDominio = itensDominio;
     }
 
     // adiciona um item de domínio no domínio
-    public void addItemDominio(ItemDominio itemDominio){
+    public void addItemDominio(QuestaoNumerica itemDominio){
         // adiciona um item de domínio no vetor
         this.itensDominio.add(itemDominio);
         this.calculaPontuacao();
@@ -62,7 +62,7 @@ public class Dominio {
     public void calculaPontuacao(){
         // percorre o vetor de itens de domínio
         float soma = 0;
-        for(ItemDominio obj: this.itensDominio){
+        for(QuestaoNumerica obj: this.itensDominio){
             // obj representa cada um dos itens de domínio
             soma += obj.getPontuacao();
         }

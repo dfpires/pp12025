@@ -1,12 +1,12 @@
-public class ItemDominio {
+public class QuestaoNumerica {
     private Long id;
     private String nome;
     private float pontuacao;
 
-    public ItemDominio() {
+    public QuestaoNumerica() {
     }
 
-    public ItemDominio(Long id, String nome, float pontuacao) {
+    public QuestaoNumerica(Long id, String nome, float pontuacao) {
         this.id = id;
         this.nome = nome;
         this.pontuacao = pontuacao;
@@ -38,7 +38,7 @@ public class ItemDominio {
 
     @Override
     public String toString() {
-        return "\nItemDominio{" +
+        return "\nQuestaoNumerica{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", pontuacao=" + pontuacao +

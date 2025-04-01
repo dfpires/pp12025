@@ -5,7 +5,16 @@ public class Candidato {
     private String nome, endereco, cidade;
     private Date niver;
     // associação
-    private AtivPart ativPart;
+
+    public Candidato() {
+    }
+    public Candidato(Long id, String nome, String endereco, String cidade, Date niver) {
+        this.id = id;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.cidade = cidade;
+        this.niver = niver;
+    }
 
     public Long getId() {
         return id;
@@ -47,14 +56,6 @@ public class Candidato {
         this.niver = niver;
     }
 
-    public AtivPart getAtivPart() {
-        return ativPart;
-    }
-
-    public void setAtivPart(AtivPart ativPart) {
-        this.ativPart = ativPart;
-    }
-
     @Override
     public String toString() {
         return "Candidato{" +
@@ -63,7 +64,6 @@ public class Candidato {
                 ", endereco='" + endereco + '\'' +
                 ", cidade='" + cidade + '\'' +
                 ", niver=" + niver +
-                ", ativPart=" + ativPart +
-                '}';
+                ", }";
     }
 }

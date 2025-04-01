@@ -1,23 +1,23 @@
 import java.util.List;
 import java.util.ArrayList;
-public class AtivPart {
+public class Questionario {
     private Long id;
     private String nome;
     private float pontuacao;
     // associação todo-parte
     private List<Dominio> dominios;
 
-    public AtivPart() {
+    public Questionario() {
         this.dominios = new ArrayList<Dominio>();
     }
-    public AtivPart(long id, String nome) {
+    public Questionario(long id, String nome) {
         this.id = id;
         this.nome = nome;
         // aloca espaço na memória para o vetor
         this.dominios = new ArrayList<Dominio>();
     }
 
-    public AtivPart(Long id, String nome, float pontuacao, List<Dominio> dominios) {
+    public Questionario(Long id, String nome, float pontuacao, List<Dominio> dominios) {
         this.id = id;
         this.nome = nome;
         this.pontuacao = pontuacao;
@@ -69,7 +69,7 @@ public class AtivPart {
     }
     @Override
     public String toString() {
-        return "AtivPart{" +
+        return "Questionario{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", pontuacao=" + pontuacao +
