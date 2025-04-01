@@ -1,47 +1,25 @@
-public class QuestaoNumerica {
-    private Long id;
-    private String nome;
-    private float pontuacao;
+public class QuestaoNumerica extends QuestaoGeral{
+    private int numero;
 
     public QuestaoNumerica() {
+        super(); // chama o construtor da superclasse
     }
 
-    public QuestaoNumerica(Long id, String nome, float pontuacao) {
-        this.id = id;
-        this.nome = nome;
-        this.pontuacao = pontuacao;
+    public QuestaoNumerica(Long id, String nome, int numero) {
+        super(id, nome); // chama o construtor da superclasse
+        this.numero = numero;
     }
-
-    public Long getId() {
-        return id;
+    public float getNumero() {
+        return numero;
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public float getPontuacao() {
-        return pontuacao;
-    }
-
-    public void setPontuacao(float pontuacao) {
-        this.pontuacao = pontuacao;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     @Override
     public String toString() {
-        return "\nQuestaoNumerica{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", pontuacao=" + pontuacao +
+        return super.toString() +
+                ", Número = " + numero +
                 '}';
     }
 }
