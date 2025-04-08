@@ -66,6 +66,7 @@ public class Dominio {
     }
 
     public void addMensagem (QuestaoGeral qg){
+
         this.mensagens.add(qg);
     }
 

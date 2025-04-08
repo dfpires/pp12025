@@ -1,4 +1,4 @@
-public class QuestaoGeral {
+public abstract class QuestaoGeral {
     protected Long id;
     protected String nome;
 
@@ -34,7 +34,6 @@ public class QuestaoGeral {
                 ", nome='" + nome + '\'' +
                 '}';
     }
-    public String mensagem(){
-        return "Geral";
-    }
+    public abstract String mensagem();
+
 }

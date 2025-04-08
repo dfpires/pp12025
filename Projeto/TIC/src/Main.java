@@ -31,11 +31,11 @@ public class Main {
          Candidato c1 = new
 Candidato(300L, "Pedro", "Estação", "Franca", new Date());
 
-   //     System.out.println(c1);
+        System.out.println(c1);
 
         Resposta r1 = new Resposta(400L, c1, ap1, new Date());
 
-     //   System.out.println(r1.toString());
+        System.out.println(r1.toString());
 
     }
 }
