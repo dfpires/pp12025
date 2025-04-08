@@ -34,4 +34,7 @@ public class QuestaoGeral {
                 ", nome='" + nome + '\'' +
                 '}';
     }
+    public String mensagem(){
+        return "Geral";
+    }
 }

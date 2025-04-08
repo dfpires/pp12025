@@ -8,6 +8,7 @@ public class Dominio {
     // associação todo-parte
     // List representa um vetor
     private List<QuestaoGeral> itensDominio;
+    private List<QuestaoGeral> mensagens;
 
     public Dominio() {
         // aloca espaço na memória para o vetor
@@ -18,6 +19,7 @@ public class Dominio {
         this.id = id;
         this.nome = nome;
         this.itensDominio = new ArrayList<QuestaoGeral>();
+        this.mensagens = new ArrayList<QuestaoGeral>();
     }
 
 
@@ -55,10 +57,18 @@ public class Dominio {
 
     // adiciona um item de domínio no domínio
     public void addItemDominio(QuestaoGeral itemDominio){
+        // itemDominio é um objeto polimórfico
+        // pois ele pode receber uma QuestaoNumerica, uma
+        // QuestaoBooleana, ou uma QuestaoTexto
         // adiciona um item de domínio no vetor
         this.itensDominio.add(itemDominio);
         this.calculaPontuacao();
     }
+
+    public void addMensagem (QuestaoGeral qg){
+        this.mensagens.add(qg);
+    }
+
     public void calculaPontuacao(){
         // percorre o vetor de itens de domínio
         float soma = 0;
@@ -71,11 +81,17 @@ public class Dominio {
 
     @Override
     public String toString() {
+        StringBuilder aux = new StringBuilder();
+        for(QuestaoGeral obj: this.mensagens){
+            aux.append("\n").append(obj.mensagem());
+        }
+
         return "\nDominio{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", pontuacao=" + pontuacao +
                 ", itensDominio=" + itensDominio +
+                ", mensagens= " + aux +
                 '}';
     }
 }

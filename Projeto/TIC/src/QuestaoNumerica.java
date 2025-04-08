@@ -16,10 +16,14 @@ public class QuestaoNumerica extends QuestaoGeral{
         this.numero = numero;
     }
 
-    @Override
+    @Override // anulação de método da superclasse
     public String toString() {
-        return super.toString() +
+        return "\n QuestaoNumerica" +
+                super.toString() +
                 ", Número = " + numero +
                 '}';
+    }
+    public String mensagem(){
+        return "Numérica";
     }
 }

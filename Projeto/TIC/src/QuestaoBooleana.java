@@ -1,34 +1,16 @@
-public class QuestaoBooleana {
-    private Long id;
-    private String nome;
+public class QuestaoBooleana extends QuestaoGeral{
     private boolean marcado;
 
     public QuestaoBooleana() {
+        super(); // chama construtor da superclasse
     }
 
     public QuestaoBooleana(Long id, String nome, boolean marcado) {
-        this.id = id;
-        this.nome = nome;
-        this.marcado = marcado;
+       super(id, nome);
+       this.marcado = marcado;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public boolean getMarcado() {
+   public boolean getMarcado() {
         return marcado;
     }
 
@@ -36,12 +18,14 @@ public class QuestaoBooleana {
         this.marcado = marcado;
     }
 
-    @Override
+    @Override // anulação do método do pai
     public String toString() {
-        return "\nQuestaoBooleana{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
+        return "\n QuestaoBooleana{" +
+                super.toString() +
                 ", marcado =" + marcado +
                 '}';
+    }
+    public String mensagem(){
+        return "Booleana";
     }
 }
