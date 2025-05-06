@@ -1,25 +1,35 @@
 package br.edu.unifacef.exemplorestful.controller;
 
 import br.edu.unifacef.exemplorestful.model.Candidato;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController// controlador Restful
+@RestController// controlador Restful das requisições
 @RequestMapping("/candidato")
 public class CandidatoController {
-
+    // cria um vetor que contém objetos da classe Candidato
     private List<Candidato> candidatos = new ArrayList<>();
+
     @GetMapping
-    public String getCandidatos(){
-        return "Retorna todos os candidatos cadastrados";
+    public List<Candidato> getCandidatos(){
+        return this.candidatos;
     }
+
     @PostMapping
-    public String addCandidato(){
-        return "Candidato cadastrado";
+    public Candidato addCandidato(@RequestBody Candidato candidato){
+        this.candidatos.add(candidato);
+        return candidato;
     }
+
+    @DeleteMapping("/{id}")
+    public String deleteCandidato(@PathVariable Long id){
+        // removeIf faz o for percorrendo e verificando igualdade de id
+        // se encontrar, remove e retorna true
+        // se não encontrar, não remove e retorna false
+        boolean resp = this.candidatos.removeIf(candidato -> candidato.getId() == id);
+        return resp ? "Candidato removido": "Candidato não encontrado";
+    }
+
 }
