@@ -31,5 +31,20 @@ public class CandidatoController {
         boolean resp = this.candidatos.removeIf(candidato -> candidato.getId() == id);
         return resp ? "Candidato removido": "Candidato não encontrado";
     }
-
+    @PutMapping("/{id}")
+    public String updateCandidato(@PathVariable Long id,
+                                  @RequestBody Candidato candidato){
+            // para cada candidato c do vetor candidatos
+            for(Candidato c : candidatos){
+                if(c.getId() == id){
+                    // encontrou o candidato para atualizar
+                    c.setNome(candidato.getNome());
+                    c.setCidade(candidato.getCidade());
+                    c.setEndereco(candidato.getEndereco());
+                    c.setNiver(candidato.getNiver());
+                    return "Candidato atualizado";
+                }
+            }
+            return "Candidato não encontrado";
+    }
 }
