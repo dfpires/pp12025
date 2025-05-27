@@ -4,36 +4,32 @@ import java.util.Date;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        QuestaoNumerica id1 = new QuestaoNumerica(11L, "Ver", 100);
-        QuestaoNumerica id2 = new QuestaoNumerica(12L, "Ouvir", 100);
-        QuestaoBooleana qb1 = new QuestaoBooleana(13L, "Função Mental Global", true);
-        QuestaoBooleana qb2 = new QuestaoBooleana(14L, "Função Mental Específica", true);
-        QuestaoTexto qt1 = new QuestaoTexto(15L, "Nome", "Lucas");
-        QuestaoTexto qt2 = new QuestaoTexto(16L, "Sexo", "Masculino");
-
+        QuestaoNumerica q1 = new QuestaoNumerica(11L, "Ver", 100);
+        QuestaoNumerica q2 = new QuestaoNumerica(12L, "Ouvir", 100);
         Dominio d1 = new Dominio(1L, "Domínio Sensorial");
-        d1.addItemDominio(id1);
-        d1.addItemDominio(id2);
-        d1.addItemDominio(qb1);
-        d1.addItemDominio(qb2);
-        d1.addItemDominio(qt1);
-        d1.addItemDominio(qt2);
+        d1.addQuestao(q1);
+        d1.addQuestao(q2);
 
-        d1.addMensagem(new QuestaoBooleana());
-        d1.addMensagem(new QuestaoNumerica());
-        d1.addMensagem(new QuestaoTexto());
+        QuestaoNumerica q3 = new QuestaoNumerica(13L, "Comunicar-se / Recepção de mensagens", 100);
+        QuestaoNumerica q4 = new QuestaoNumerica(14L, "Comunicar-se / Produção de mensagens", 100);
+        QuestaoNumerica q5 = new QuestaoNumerica(15L, "Conversar", 100);
+        QuestaoNumerica q6 = new QuestaoNumerica(16L, "Discutir", 100);
+        QuestaoNumerica q7 = new QuestaoNumerica(17L, "Utilização de dispositivos de comunicação à distância", 100);
+        Dominio d2 = new Dominio(1L, "Domínio Comunicação");
+        d2.addQuestao(q3);
+        d2.addQuestao(q4);
+        d2.addQuestao(q5);
+        d2.addQuestao(q6);
+        d2.addQuestao(q7);
 
-        System.out.println(d1);
-
-        Questionario ap1 = new Questionario(100L, "Atividades e Participações ");
-        ap1.addDominio(d1);
+        Questionario quest1 = new Questionario(100L, "Atividades e Participações ");
+        quest1.addDominio(d1);
+        quest1.addDominio(d2);
 
          Candidato c1 = new
 Candidato(300L, "Pedro", "Estação", "Franca", new Date());
 
-        System.out.println(c1);
-
-        Resposta r1 = new Resposta(400L, c1, ap1, new Date());
+        Resposta r1 = new Resposta(400L, c1, quest1, new Date());
 
         System.out.println(r1.toString());
 
