@@ -1,7 +1,9 @@
 package br.com.unifacef.bdrestful.service;
 
 import br.com.unifacef.bdrestful.model.Candidato;
+import br.com.unifacef.bdrestful.model.Formulario;
 import br.com.unifacef.bdrestful.repository.CandidatoRepository;
+import br.com.unifacef.bdrestful.repository.FormularioRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,9 +14,12 @@ import java.util.Optional;
 public class CandidatoService {
     // cria um objeto do tipo da interface CandidatoRepository
     CandidatoRepository candidatoRepository;
+    FormularioRepository formularioRepository;
     // construtor com parâmetros
-    CandidatoService(CandidatoRepository candidatoRepository) {
+    CandidatoService(CandidatoRepository candidatoRepository,
+                     FormularioRepository formularioRepository) {
         this.candidatoRepository = candidatoRepository;
+        this.formularioRepository = formularioRepository;
     }
     // lista todos os candidatos
     public List<Candidato> listaCandidatos(){
@@ -23,7 +28,15 @@ public class CandidatoService {
     }
     // insere um candidato
     public Candidato addCandidato(Candidato candidato){
-        return candidatoRepository.save(candidato);
+         // verifica se o formulário associado ao candidato tem no BD
+        Formulario formulario =
+        formularioRepository.findById(candidato.getFormulario().getId()).orElse(null);
+        if (formulario != null){
+            candidato.setFormulario(formulario);
+            return candidatoRepository.save(candidato);
+        }
+        return null;
+
     }
     // remove um candidato
     public boolean removeCandidato(Long id){
