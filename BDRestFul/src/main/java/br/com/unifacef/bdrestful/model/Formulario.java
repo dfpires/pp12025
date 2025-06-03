@@ -1,5 +1,6 @@
 package br.com.unifacef.bdrestful.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -15,6 +16,7 @@ public class Formulario {
     // associação com Candidato
     // formulário é o nome do relacionamento
     @OneToMany(mappedBy = "formulario")
+    @JsonIgnore
     private List<Candidato> candidatos;
 
     public Long getId() {
